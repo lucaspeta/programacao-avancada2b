@@ -25,4 +25,11 @@ public:
     }
 };
 
+class MatrizIncompativelException: public exception {
+public:
+    virtual const char* what() {
+        return "Eh necessario que as matrizes tenham o mesmo numero de linhas e colunas!";
+    }
+};
+
 #endif

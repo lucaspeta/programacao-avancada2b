@@ -87,8 +87,6 @@ class PilhaString{
 		}
 		
 		friend ostream& operator<<(ostream &os, PilhaString &p);
-		
-		friend istream& operator>>(istream &is, PilhaString &p);
 				
 	// atts	
 	private:
@@ -96,9 +94,6 @@ class PilhaString{
 		int _tamanho;
   		string* _item;
 };
-
-istream& operator>>(istream &is, PilhaString &p){
-}
 
 ostream& operator<<(ostream &os, PilhaString &p){
 	os << "_____________PILHA____________" << endl;
