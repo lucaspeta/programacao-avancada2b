@@ -7,19 +7,20 @@
 #include <string>
 using namespace std;
 
+template<class T>
 class Pilha{
 	public:
 		// construtor
 		Pilha(int tamanho = PILHA_MAX) : _tamanho(tamanho){
 			_topo = -1;
-			_item = new string[tamanho];
+			_item = new T[tamanho];
 		}
 		
 		int getTopo(){
 			return _topo;
 		}
 		
-		string getItem(int i){
+		T getItem(int i){
 			return _item[i];
 		}
 		
@@ -32,7 +33,7 @@ class Pilha{
 			return _tamanho;
 		}
 		
-		// retorna se a pilha está vazia
+		// retorna se a pilha estï¿½ vazia
 		bool taVazia(){
 			if(_topo == -1){ return true; } else{ return false; }
 		}
@@ -43,18 +44,13 @@ class Pilha{
 		}
 		
 		// inseri elementos em PILHA
-		void empilha(string x) {    		
-			if(x.compare("") != 0){
-				if(!taCheia()){
-					_item[++_topo] = x;
-				}
-				else{
-					throw PilhaCheiaException();
-				}				
+		void empilha(T x) {   		
+			if(!taCheia()){
+				_item[++_topo] = x;
 			}
 			else{
-				throw StringVaziaException();
-			}			   
+				throw PilhaCheiaException();
+			}						   
 		}
 		
 		// retira elementos de PILHA
@@ -78,36 +74,17 @@ class Pilha{
 			cout << "______________FIM______________" << endl;
 		}		
 		
-		void operator+=(string s){
-			empilha(s);
+		void operator+=(T element){
+			empilha(element);
 		}
 		
-		string operator--(){
+		T operator--(){
 			desempilha();
 		}
-		
-		friend ostream& operator<<(ostream &os, Pilha &p);
-		
-		friend istream& operator>>(istream &is, Pilha &p);
-				
 	// atts	
 	private:
 		int _topo;
 		int _tamanho;
-  		string* _item;
+  		T* _item;
 };
-
-istream& operator>>(istream &is, Pilha &p){
-}
-
-ostream& operator<<(ostream &os, Pilha &p){
-	os << "_____________PILHA____________" << endl;
-	
-		for(int i = 0; i < p.getTopo(); ++i){
-			os << "ITEM[" << i << "] -> " << p.getItem(i) << endl;
-		}
-			
-	os << "______________FIM______________" << endl;
-}
-
 #endif

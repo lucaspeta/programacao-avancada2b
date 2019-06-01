@@ -7,10 +7,10 @@
 #include <string>
 using namespace std;
 
-class Pilha{
+class PilhaString{
 	public:
 		// construtor
-		Pilha(int tamanho = PILHA_MAX) : _tamanho(tamanho){
+		PilhaString(int tamanho = PILHA_MAX) : _tamanho(tamanho){
 			_topo = -1;
 			_item = new string[tamanho];
 		}
@@ -24,7 +24,7 @@ class Pilha{
 		}
 		
 		// destrutor
-		~Pilha(){
+		~PilhaString(){
 		}
 						
 		// retorna o tamanho da pilha
@@ -32,7 +32,7 @@ class Pilha{
 			return _tamanho;
 		}
 		
-		// retorna se a pilha está vazia
+		// retorna se a pilha estï¿½ vazia
 		bool taVazia(){
 			if(_topo == -1){ return true; } else{ return false; }
 		}
@@ -86,9 +86,9 @@ class Pilha{
 			desempilha();
 		}
 		
-		friend ostream& operator<<(ostream &os, Pilha &p);
+		friend ostream& operator<<(ostream &os, PilhaString &p);
 		
-		friend istream& operator>>(istream &is, Pilha &p);
+		friend istream& operator>>(istream &is, PilhaString &p);
 				
 	// atts	
 	private:
@@ -97,10 +97,10 @@ class Pilha{
   		string* _item;
 };
 
-istream& operator>>(istream &is, Pilha &p){
+istream& operator>>(istream &is, PilhaString &p){
 }
 
-ostream& operator<<(ostream &os, Pilha &p){
+ostream& operator<<(ostream &os, PilhaString &p){
 	os << "_____________PILHA____________" << endl;
 	
 		for(int i = 0; i < p.getTopo(); ++i){
