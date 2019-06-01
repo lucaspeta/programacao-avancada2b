@@ -67,7 +67,7 @@ class Pilha{
 		void imprime(){
 			cout << "_____________PILHA____________" << endl;
 			
-			for(int i = 0; i < getTopo(); ++i){
+			for(int i = 0; i <= getTopo(); ++i){
 				cout << "ITEM[" << i << "] -> " << getItem(i) << endl;
 			}
 			
@@ -81,10 +81,12 @@ class Pilha{
 		T operator--(){
 			desempilha();
 		}
+
 	// atts	
 	private:
 		int _topo;
 		int _tamanho;
   		T* _item;
 };
+
 #endif

@@ -71,7 +71,7 @@ class PilhaString{
 		void imprime(){
 			cout << "_____________PILHA____________" << endl;
 			
-			for(int i = 0; i < getTopo(); ++i){
+			for(int i = 0; i <= getTopo(); ++i){
 				cout << "ITEM[" << i << "] -> " << getItem(i) << endl;
 			}
 			
@@ -103,7 +103,7 @@ istream& operator>>(istream &is, PilhaString &p){
 ostream& operator<<(ostream &os, PilhaString &p){
 	os << "_____________PILHA____________" << endl;
 	
-		for(int i = 0; i < p.getTopo(); ++i){
+		for(int i = 0; i <= p.getTopo(); ++i){
 			os << "ITEM[" << i << "] -> " << p.getItem(i) << endl;
 		}
 			
